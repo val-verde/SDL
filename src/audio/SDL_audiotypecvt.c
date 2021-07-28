@@ -25,7 +25,9 @@
 #include "SDL_cpuinfo.h"
 
 #ifdef __ARM_NEON
+#ifndef _WIN64
 #define HAVE_NEON_INTRINSICS 1
+#endif
 #endif
 
 #ifdef __SSE2__
