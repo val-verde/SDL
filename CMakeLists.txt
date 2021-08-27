@@ -1459,8 +1459,7 @@ elseif(UNIX AND NOT APPLE AND NOT RISCOS AND NOT HAIKU)
         # We've already found the header, so link the lib if present.
         # NB: This .pc file is not present on FreeBSD where the implicitly
         # linked base system libgcc_s includes all libunwind ABI.
-        pkg_search_module(UNWIND libunwind)
-        pkg_search_module(UNWIND_GENERIC libunwind-generic)
+        find_library(UNWIND unwind)
         list(APPEND EXTRA_TEST_LIBS ${UNWIND_LIBRARIES} ${UNWIND_GENERIC_LIBRARIES})
       endif()
     endif()
