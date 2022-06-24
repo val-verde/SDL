@@ -666,18 +666,18 @@ WGI_JoystickOpen(SDL_Joystick *joystick, int device_index)
         hr = __x_ABI_CWindows_CGaming_CInput_CIGameControllerBatteryInfo_TryGetBatteryReport(hwdata->battery, &report);
         if (SUCCEEDED(hr) && report) {
             int full_capacity = 0, curr_capacity = 0;
-            __FIReference_1_int *full_capacityP, *curr_capacityP;
+            __FIReference_1_INT32 *full_capacityP, *curr_capacityP;
 
             hr = __x_ABI_CWindows_CDevices_CPower_CIBatteryReport_get_FullChargeCapacityInMilliwattHours(report, &full_capacityP);
             if (SUCCEEDED(hr)) {
-                __FIReference_1_int_get_Value(full_capacityP, &full_capacity);
-                __FIReference_1_int_Release(full_capacityP);
+                __FIReference_1_INT32_get_Value(full_capacityP, &full_capacity);
+                __FIReference_1_INT32_Release(full_capacityP);
             }
 
             hr = __x_ABI_CWindows_CDevices_CPower_CIBatteryReport_get_RemainingCapacityInMilliwattHours(report, &curr_capacityP);
             if (SUCCEEDED(hr)) {
-                __FIReference_1_int_get_Value(curr_capacityP, &curr_capacity);
-                __FIReference_1_int_Release(curr_capacityP);
+                __FIReference_1_INT32_get_Value(curr_capacityP, &curr_capacity);
+                __FIReference_1_INT32_Release(curr_capacityP);
             }
 
             if (full_capacity > 0) {
